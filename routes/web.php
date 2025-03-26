@@ -1,9 +1,10 @@
 <?php
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\OperacionesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [CursoController::class,'getName'])->parameter(['name'=>'Kenia'])->name('home');
+Route::get('/', [CursoController::class,'getName'])->name('home');
 Route::get('/hola', function () {
     return route('hola');
     //return 'Hola mundo';
@@ -31,4 +32,10 @@ Route::prefix('admin')->group(function () {
         return 'Segundo';
     })->name('admin.segundo');
     
+});
+Route::prefix('/operaciones')->group(function () {
+    Route::get('/suma', [OperacionesController::class,'sumar'])->name('suma');
+    Route::get('/resta', [OperacionesController::class,'restar'])->name('resta');
+    Route::get('/multiplicacion', [OperacionesController::class,'multiplicar'])->name('multiplicacion');
+    Route::get('/division', [OperacionesController::class,'dividir'])->name('division');
 });
