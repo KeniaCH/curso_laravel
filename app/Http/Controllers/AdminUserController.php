@@ -4,18 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $num =70;
-        $data = '';
-        $names = ['Juan','Pedro','Maria','Jose'];
-        return view('derectives', compact('num','data','names'));
-
+        //
     }
 
     /**
@@ -23,15 +19,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(string $request)
     {
-        //
+        dd($request);
     }
 
     /**

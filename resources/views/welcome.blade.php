@@ -57,6 +57,16 @@
                         {{ route('hola') }}
                         {{ route('plus') }}
                         {{ route('suma',['x'=>20,'y'=>50]) }}
+                        <x-alert  type="error" :message="$name" class="my-class" data-id="123">
+                            <x-slot:title>
+                                <h2>Este es mi Slot de Tilulo </h2>
+                            </x-slot>
+                            <h1><strong>Whoops!</strong> Este es mi slot de Alert</h1>
+                        </x-alert>
+                        <x-arlert2>
+                        <h1><strong>Whoops!</strong> Este es mi slot de Alert2</h1>
+                        </x-arlert2>
+                        <x-anonimo type="error" :name="$name" class="my-class"/>
                     </div>
                     <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Laravel has an incredibly rich ecosystem. <br>We suggest starting with the following.</p>
                     <ul class="flex flex-col mb-4 lg:mb-6">
