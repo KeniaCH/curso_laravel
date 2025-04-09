@@ -37,7 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/segundo', function () {
         return 'Segundo';
     })->name('admin.segundo');
-    
+
 });
 //tarea Modulo  1
 Route::prefix('/operaciones')->group(function () {
@@ -71,10 +71,22 @@ Route::view('mostrar','display', ['message' => '<p>Este es un parrafo</p>'])->na
 Route::get('directivas',[UserController::class, 'index'])->name('directivas');
 Route::view('incluir','incluir');
 
-
+//Rutas de la tarea Modulo 2
 Route::controller(PostController::class)->group(function(){
     Route::get('posts', 'index')->name('posts.index');
     Route::get('/posts/create', 'create')->name('posts.create');
     Route::post('/posts','store')->name('posts.store');
     Route::get('posts/{id}','show')->name('posts.show');
 });
+
+Route::get('datos',[UserController::class,'data']);
+
+//clase 08/04/20225
+Route::get('guardar', [UserController::class,'store'])->name('guardar');
+Route::get('actualizar/{id}', [UserController::class,'update'])->name('actualizar');
+Route::get('borrar/{id}', [UserController::class,'destroy'])->name('borrar');
+
+Route::get('form', function () {
+    return view('form');
+})->name('form');
+Route::put('form', [UserController::class,'store'])->name('save');
